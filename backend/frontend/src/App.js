@@ -6,12 +6,13 @@ function App() {
   const [selectedValue2, setSelectedValue2] = useState("");
   const [selectedValue3, setSelectedValue3] = useState("");
   const [selectedValue4, setSelectedValue4] = useState("");
-  const [outputValue, setoutputValue] = useState(localStorage.getItem("outputValue") || "");
+  // const [outputValue, setoutputValue] = useState(localStorage.getItem("outputValue") || "");
+  const [outputValue, setoutputValue] = useState( "");
 
-  useEffect(() => {
+  // useEffect(() => {
     
-    localStorage.setItem("outputValue", outputValue);
-  }, [ outputValue]);
+  //   localStorage.setItem("outputValue", outputValue);
+  // }, [ outputValue]);
 
   useEffect(() => {
     console.log(outputValue);
