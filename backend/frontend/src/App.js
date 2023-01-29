@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import './App.css';
 
 function App() {
@@ -6,12 +6,21 @@ function App() {
   const [selectedValue2, setSelectedValue2] = useState("");
   const [selectedValue3, setSelectedValue3] = useState("");
   const [selectedValue4, setSelectedValue4] = useState("");
-  const [outputvalue, setoutputvalue] = useState("hi");
+  const [outputValue, setoutputValue] = useState("hi");
+  
+  useEffect(() => {
+    console.log(outputValue);
+  }, [outputValue]);
+  
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
    
+    // console.log(5+3);
     console.log(selectedValue, selectedValue2, selectedValue3, selectedValue4);
+    setoutputValue(`You are a great person`);
+   
     
 
 
@@ -71,7 +80,8 @@ function App() {
       </form>
            <div className='output'>
             <h4>Here is something about you</h4>
-          <textarea>{outputvalue}</textarea>
+            
+            <textarea value={outputValue} />
 
           </div>
       </div>
