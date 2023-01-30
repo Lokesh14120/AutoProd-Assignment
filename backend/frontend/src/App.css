@@ -38,3 +38,30 @@ label {
 .output{
   margin-top: 20px;
 }
+
+textarea {
+  width: 40%;
+  height: 20px;
+  font-size: 14px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none;
+  background-color: #fff;
+  }
+  
+  button {
+  background-color: #3269d8;
+  color: #fff;
+  font-size: 14px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.3s ease-in-out;
+  }
+  
+  button:hover {
+  background-color: #285fac;
+  }

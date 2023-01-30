@@ -15,8 +15,8 @@ def save_data(request):
        
         flavor=data['flavor'],
         color=data['color'],
-        animal=['animal'],
-        food=['food']
+        animal=data['animal'],
+        food=data['food']
     )
     serializer = UserDataSerializer(note, many=False)
     return Response(serializer.data)

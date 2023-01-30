@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
+
 import './App.css';
+import DataDisplay from './Pages/DataDisplay';
 
 
 function App() {
@@ -9,6 +11,8 @@ function App() {
   const [selectedValue4, setSelectedValue4] = useState("");
   // const [outputValue, setoutputValue] = useState(localStorage.getItem("outputValue") || "");
   const [outputValue, setoutputValue] = useState("");
+
+  const [responses, setResponses] = useState([]);
 
   // useEffect(() => {
 
@@ -68,11 +72,16 @@ function App() {
   };
   const getData = async () => {
 
-    let response = await fetch('http://127.0.0.1:8000/api/get_data/')
-    let data = await response.json()
-    console.log(data)
+    let response = await fetch('http://127.0.0.1:8000/api/get_data/');
+    let data = await response.json();
+    setResponses(data);
+    console.log(responses);
 
   };
+
+  // useEffect(() => {
+  //   getData();
+  // }, []);
 
   return (
     <div className="App">
@@ -133,8 +142,10 @@ function App() {
 
         </div>
         <button onClick={getData}>
-          Getdata
+          Show previous reponses
         </button>
+        
+        <DataDisplay data={responses} />
       </div>
     </div>
   );
