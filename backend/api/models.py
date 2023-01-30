@@ -1,3 +1,7 @@
 from django.db import models
 
-# Create your models here.
+class UserData(models.Model):
+    flavor = models.CharField(max_length=100)
+    color = models.CharField(max_length=100)
+    animal = models.CharField(max_length=100)
+    food = models.CharField(max_length=100)

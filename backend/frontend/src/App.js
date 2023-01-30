@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 
+
 function App() {
   const [selectedValue, setSelectedValue] = useState("");
   const [selectedValue2, setSelectedValue2] = useState("");
@@ -14,9 +15,9 @@ function App() {
   //   localStorage.setItem("outputValue", outputValue);
   // }, [ outputValue]);
 
-  useEffect(() => {
-    console.log(outputValue);
-  }, [outputValue]);
+  // useEffect(() => {
+  //   console.log(outputValue);
+  // }, [outputValue]);
 
 
 
@@ -26,11 +27,34 @@ function App() {
     // console.log(5+3);
     console.log(selectedValue, selectedValue2, selectedValue3, selectedValue4);
     setoutputValue(`You are a great human`);
-
-
-
-
+    try {
+      const res = await fetch('http://127.0.0.1:8000/api/save_data/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          flavor: selectedValue,
+          color: selectedValue2,
+          animal: selectedValue3,
+          food: selectedValue4
+        }),
+      });
+      const data = await res.json();
+      console.log('here');
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+      console.log('gye bhai');
+    }
   };
+  const getData = async () => {
+    
+       let response = await fetch('http://127.0.0.1:8000/api/get_data/')
+      let data = await response.json()
+       console.log(data)
+  
+     };
 
   return (
     <div className="App">
@@ -90,6 +114,9 @@ function App() {
           <textarea value={outputValue} />
 
         </div>
+        <button onClick={getData}>
+          Getdata
+        </button>
       </div>
     </div>
   );
