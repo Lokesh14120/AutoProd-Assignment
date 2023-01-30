@@ -49,7 +49,7 @@ function App() {
     console.log(selectedValue, selectedValue2, selectedValue3, selectedValue4);
     setoutputValue(`You are a great human`);
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/save_data/', {
+      const res = await fetch('/api/save_data/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -72,7 +72,7 @@ function App() {
   };
   const getData = async () => {
 
-    let response = await fetch('http://127.0.0.1:8000/api/get_data/');
+    let response = await fetch('/api/get_data/');
     let data = await response.json();
     setResponses(data);
     console.log(responses);
